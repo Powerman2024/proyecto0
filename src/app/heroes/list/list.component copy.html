@@ -1,0 +1,31 @@
+<h3>Listado de Heroes</h3>
+
+<div *ngIf="deletedHeroe; else ocultarMensajeBorrado">
+  <h3>Heroe borrado <small class="text-danger">{{deletedHeroe}}</small></h3>
+</div>
+
+<ng-template #ocultarMensajeBorrado><small class="text-danger">No has borrado nada</small></ng-template>
+
+<div>
+  <button
+  *ngIf="heroNames.length > 0"
+  (click)="removeUltimoHeroe()" class="btn btn-outline-danger">
+    Borrar ultimo heroe
+  </button>
+</div>
+
+<hr>
+
+<!-- <div>
+  <input [(ngModel)]="newHero" class="mx-2" placeholder="Add a hero">
+  <button (click)="addHeroe()" class="btn btn-outline-danger">Agregar Heroe</button>
+  <h3>Heroe por Agregar: <small class="text-danger">{{newHero}}</small></h3>
+</div> -->
+
+<hr>
+<!-- recorre el arrays de superheroes -->
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">
+    {{name}}
+  </li>
+</ul>
